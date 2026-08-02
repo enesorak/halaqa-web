@@ -1094,30 +1094,28 @@ h1,h2,h3,h4,p{margin:0;}
         <p style="margin-top:14px;font-size:15.5px;line-height:1.65;color:var(--mute);font-weight:450">{{ t.shots.sub }}</p>
       </div>
     </div>
-    <div data-hq="g3" style="margin-top:44px;display:grid;gap:28px;grid-template-columns:repeat(3,1fr);justify-items:center">
-      <div style="width:100%;max-width:280px">
-        <div style="border-radius:40px;padding:9px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:var(--shadow)">
-          <div style="position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(170deg,#24413A,#1A2F2A);aspect-ratio:9/19">
-            <image-slot id="shot-1" src="assets/shots/05-tesbih.png" shape="rect" fit="cover" placeholder="{{ t.shots.a }}" style="width:100%;height:100%"></image-slot>
+    <div data-hq="tourgrid" style="margin-top:48px;display:grid;gap:44px;grid-template-columns:1fr minmax(300px,336px);align-items:start">
+      <div data-tour-steps>
+        <sc-for list="{{ t.tour.steps }}" as="s" hint-placeholder-count="5">
+          <div data-tour-step style="min-height:74vh;display:flex;flex-direction:column;justify-content:center;padding-inline-end:12px">
+            <div style="display:inline-flex;align-items:center;gap:10px;width:max-content">
+              <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none"></span>
+              <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);font-weight:700">{{ s.k }}</span>
+            </div>
+            <div style="margin-top:16px;font-size:clamp(23px,3vw,33px);line-height:1.22;letter-spacing:-.02em;font-weight:700">{{ s.v }}</div>
           </div>
-        </div>
-        <div style="margin-top:14px;text-align:center;font-size:14px;font-weight:700">{{ t.shots.aLabel }}</div>
+        </sc-for>
       </div>
-      <div style="width:100%;max-width:280px">
-        <div style="border-radius:40px;padding:9px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:var(--shadow)">
-          <div style="position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(170deg,#24413A,#1A2F2A);aspect-ratio:9/19">
-            <image-slot id="shot-2" src="assets/shots/03-meydan.png" shape="rect" fit="cover" placeholder="{{ t.shots.b }}" style="width:100%;height:100%"></image-slot>
+      <div data-tour-phone style="position:sticky;top:12vh;align-self:start">
+        <div style="border-radius:44px;padding:10px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:0 50px 82px -36px rgba(0,0,0,.6),0 0 0 1px rgba(217,181,88,.14)">
+          <div style="position:relative;border-radius:34px;overflow:hidden;background:#0E1A16;aspect-ratio:9/19.3">
+            <img data-tour-shot src="assets/shots/01-home.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .5s ease"/>
+            <img data-tour-shot src="assets/shots/05-tesbih.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
+            <img data-tour-shot src="assets/shots/03-meydan.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
+            <img data-tour-shot src="assets/shots/02-campaigns.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
+            <img data-tour-shot src="assets/shots/07-chat.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
           </div>
         </div>
-        <div style="margin-top:14px;text-align:center;font-size:14px;font-weight:700">{{ t.shots.bLabel }}</div>
-      </div>
-      <div style="width:100%;max-width:280px">
-        <div style="border-radius:40px;padding:9px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:var(--shadow)">
-          <div style="position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(170deg,#24413A,#1A2F2A);aspect-ratio:9/19">
-            <image-slot id="shot-3" src="assets/shots/02-campaigns.png" shape="rect" fit="cover" placeholder="{{ t.shots.c }}" style="width:100%;height:100%"></image-slot>
-          </div>
-        </div>
-        <div style="margin-top:14px;text-align:center;font-size:14px;font-weight:700">{{ t.shots.cLabel }}</div>
       </div>
     </div>
   </div>
@@ -1248,6 +1246,16 @@ const STR = {
       a: "Tesbih ekranı", aLabel: "Tesbih",
       b: "Meydan ekranı", bLabel: "Meydan",
       c: "Kampanyalar ekranı", cLabel: "Kampanyalar"
+    },
+    tour: {
+      eyebrow: "Bir turda gör", title: "Kaydır, Halaqa'yı tanı.",
+      steps: [
+        { k: "Ana Sayfa", v: "Zikir yolculuğun, günün programı ve kampanyaların tek bakışta." },
+        { k: "Tesbih", v: "Dokun, say, sakinleş — haptik geri bildirimle akıcı bir tesbih." },
+        { k: "Meydan", v: "Canlı odalar, dua duvarı, günün duası ve sözü bir arada." },
+        { k: "Kampanyalar", v: "Binlerce kişinin zikri tek bir hedefte birleşir." },
+        { k: "Mesajlaşma", v: "Birebir ve topluluk sohbeti; sesli, görüntülü ve dosya." }
+      ]
     },
     about: {
       eyebrow: "Halaqa ne demek?",
@@ -1381,6 +1389,16 @@ const STR = {
       b: "Square screen", bLabel: "Square",
       c: "Campaigns screen", cLabel: "Campaigns"
     },
+    tour: {
+      eyebrow: "See it in one scroll", title: "Scroll to meet Halaqa.",
+      steps: [
+        { k: "Home", v: "Your dhikr journey, today's program and campaigns at a glance." },
+        { k: "Tasbih", v: "Tap, count, settle — a fluid tasbih with haptic feedback." },
+        { k: "Square", v: "Live rooms, the prayer wall, the verse and word of the day." },
+        { k: "Campaigns", v: "Thousands of people's dhikr, joined into one shared goal." },
+        { k: "Messaging", v: "One-to-one and community chat; voice, video and files." }
+      ]
+    },
     about: {
       eyebrow: "What does Halaqa mean?",
       word: "حلقة",
@@ -1512,6 +1530,16 @@ const STR = {
       a: "شاشة السبحة", aLabel: "السبحة",
       b: "شاشة الساحة", bLabel: "الساحة",
       c: "شاشة الحملات", cLabel: "الحملات"
+    },
+    tour: {
+      eyebrow: "شاهدها بتمريرة واحدة", title: "مرّر لتتعرّف على حلقة.",
+      steps: [
+        { k: "الرئيسية", v: "رحلة ذِكرك وبرنامج اليوم والحملات في لمحة واحدة." },
+        { k: "السبحة", v: "انقر، عُدّ، اطمئنّ — سبحة سلسة باهتزازٍ لطيف." },
+        { k: "الساحة", v: "غرف مباشرة، وجدار الدعاء، ودعاء اليوم وكلمته." },
+        { k: "الحملات", v: "ذِكر آلاف الناس يجتمع في هدفٍ واحد." },
+        { k: "المراسلة", v: "محادثة فردية ومجتمعية؛ صوت وفيديو وملفات." }
+      ]
     },
     about: {
       eyebrow: "ما معنى حلقة؟",
@@ -1731,5 +1759,53 @@ class Component extends DCLogic {
 }
 </script>
 
+<style>
+  html, body { height: auto; min-height: 100%; }
+  [data-tour-step] { opacity: .3; transition: opacity .45s ease; }
+  [data-tour-step]:first-child { opacity: 1; }
+  @media (max-width: 860px) {
+    [data-hq="tourgrid"] { grid-template-columns: 1fr !important; gap: 8px !important; }
+    [data-tour-phone] { order: -1; top: 8vh !important; margin: 0 auto 6px; width: min(62vw, 250px); }
+    [data-tour-step] { min-height: 62vh !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-tour-shot], [data-tour-step] { transition: none !important; }
+  }
+</style>
+<script>
+(function () {
+  function pick(root) {
+    var steps = root.querySelectorAll('[data-tour-step]');
+    var shots = root.querySelectorAll('[data-tour-shot]');
+    if (!steps.length || !shots.length) return;
+    var mid = window.innerHeight * 0.42, active = 0, best = Infinity;
+    for (var i = 0; i < steps.length; i++) {
+      var r = steps[i].getBoundingClientRect();
+      var d = Math.abs((r.top + r.bottom) / 2 - mid);
+      if (d < best) { best = d; active = i; }
+    }
+    var n = Math.min(shots.length, steps.length);
+    for (var j = 0; j < shots.length; j++) shots[j].style.opacity = (j === active) ? '1' : '0';
+    for (var k = 0; k < steps.length; k++) steps[k].style.opacity = (k === active) ? '1' : '.3';
+  }
+  function init() {
+    var root = document.querySelector('[data-hq="tourgrid"]');
+    if (!root || !root.querySelector('[data-tour-shot]')) return false;
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () { pick(root); ticking = false; });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // language switch re-renders the steps — re-sync shortly after any tap
+    document.addEventListener('click', function () { setTimeout(function () { pick(root); }, 380); }, true);
+    pick(root);
+    return true;
+  }
+  var tries = 0;
+  var timer = setInterval(function () { if (init() || ++tries > 150) clearInterval(timer); }, 80);
+})();
+</script>
 
 </body></html>
