@@ -1094,28 +1094,28 @@ h1,h2,h3,h4,p{margin:0;}
         <p style="margin-top:14px;font-size:15.5px;line-height:1.65;color:var(--mute);font-weight:450">{{ t.shots.sub }}</p>
       </div>
     </div>
-    <div data-hq="tourgrid" style="margin-top:48px;display:grid;gap:44px;grid-template-columns:1fr minmax(300px,336px);align-items:start">
-      <div data-tour-steps>
+    <div data-hq="tourgrid" style="margin-top:44px;display:flex;flex-direction:column;align-items:center">
+      <div style="width:min(300px,76vw);border-radius:44px;padding:10px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:0 50px 82px -36px rgba(0,0,0,.6),0 0 0 1px rgba(217,181,88,.14)">
+        <div style="position:relative;border-radius:34px;overflow:hidden;background:#0E1A16;aspect-ratio:9/19.3">
+          <img data-tour-shot src="assets/shots/01-home.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .6s ease"/>
+          <img data-tour-shot src="assets/shots/05-tesbih.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease"/>
+          <img data-tour-shot src="assets/shots/03-meydan.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease"/>
+          <img data-tour-shot src="assets/shots/02-campaigns.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease"/>
+        </div>
+      </div>
+      <div data-tour-dots style="margin-top:20px;display:flex;gap:6px;width:min(300px,76vw)">
+        <span data-tour-dot style="flex:1;height:4px;border-radius:999px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:0;background:var(--em);border-radius:999px"></i></span>
+        <span data-tour-dot style="flex:1;height:4px;border-radius:999px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:0;background:var(--em);border-radius:999px"></i></span>
+        <span data-tour-dot style="flex:1;height:4px;border-radius:999px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:0;background:var(--em);border-radius:999px"></i></span>
+        <span data-tour-dot style="flex:1;height:4px;border-radius:999px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:0;background:var(--em);border-radius:999px"></i></span>
+      </div>
+      <div data-tour-caps style="position:relative;margin-top:22px;width:100%;max-width:26em;min-height:98px">
         <sc-for list="{{ t.tour.steps }}" as="s" hint-placeholder-count="5">
-          <div data-tour-step style="min-height:74vh;display:flex;flex-direction:column;justify-content:center;padding-inline-end:12px">
-            <div style="display:inline-flex;align-items:center;gap:10px;width:max-content">
-              <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none"></span>
-              <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);font-weight:700">{{ s.k }}</span>
-            </div>
-            <div style="margin-top:16px;font-size:clamp(23px,3vw,33px);line-height:1.22;letter-spacing:-.02em;font-weight:700">{{ s.v }}</div>
+          <div data-tour-cap style="position:absolute;inset:0;text-align:center;opacity:0;transition:opacity .5s ease">
+            <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);font-weight:700">{{ s.k }}</div>
+            <div style="margin-top:8px;font-size:clamp(19px,2.4vw,25px);line-height:1.36;letter-spacing:-.01em;font-weight:700">{{ s.v }}</div>
           </div>
         </sc-for>
-      </div>
-      <div data-tour-phone style="position:sticky;top:12vh;align-self:start">
-        <div style="border-radius:44px;padding:10px;background:linear-gradient(160deg,#26362F,#0E1A16);box-shadow:0 50px 82px -36px rgba(0,0,0,.6),0 0 0 1px rgba(217,181,88,.14)">
-          <div style="position:relative;border-radius:34px;overflow:hidden;background:#0E1A16;aspect-ratio:9/19.3">
-            <img data-tour-shot src="assets/shots/01-home.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .5s ease"/>
-            <img data-tour-shot src="assets/shots/05-tesbih.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
-            <img data-tour-shot src="assets/shots/03-meydan.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
-            <img data-tour-shot src="assets/shots/02-campaigns.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
-            <img data-tour-shot src="assets/shots/07-chat.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease"/>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1253,8 +1253,7 @@ const STR = {
         { k: "Ana Sayfa", v: "Zikir yolculuğun, günün programı ve kampanyaların tek bakışta." },
         { k: "Tesbih", v: "Dokun, say, sakinleş — haptik geri bildirimle akıcı bir tesbih." },
         { k: "Meydan", v: "Canlı odalar, dua duvarı, günün duası ve sözü bir arada." },
-        { k: "Kampanyalar", v: "Binlerce kişinin zikri tek bir hedefte birleşir." },
-        { k: "Mesajlaşma", v: "Birebir ve topluluk sohbeti; sesli, görüntülü ve dosya." }
+        { k: "Kampanyalar", v: "Binlerce kişinin zikri tek bir hedefte birleşir." }
       ]
     },
     about: {
@@ -1395,8 +1394,7 @@ const STR = {
         { k: "Home", v: "Your dhikr journey, today's program and campaigns at a glance." },
         { k: "Tasbih", v: "Tap, count, settle — a fluid tasbih with haptic feedback." },
         { k: "Square", v: "Live rooms, the prayer wall, the verse and word of the day." },
-        { k: "Campaigns", v: "Thousands of people's dhikr, joined into one shared goal." },
-        { k: "Messaging", v: "One-to-one and community chat; voice, video and files." }
+        { k: "Campaigns", v: "Thousands of people's dhikr, joined into one shared goal." }
       ]
     },
     about: {
@@ -1537,8 +1535,7 @@ const STR = {
         { k: "الرئيسية", v: "رحلة ذِكرك وبرنامج اليوم والحملات في لمحة واحدة." },
         { k: "السبحة", v: "انقر، عُدّ، اطمئنّ — سبحة سلسة باهتزازٍ لطيف." },
         { k: "الساحة", v: "غرف مباشرة، وجدار الدعاء، ودعاء اليوم وكلمته." },
-        { k: "الحملات", v: "ذِكر آلاف الناس يجتمع في هدفٍ واحد." },
-        { k: "المراسلة", v: "محادثة فردية ومجتمعية؛ صوت وفيديو وملفات." }
+        { k: "الحملات", v: "ذِكر آلاف الناس يجتمع في هدفٍ واحد." }
       ]
     },
     about: {
@@ -1761,46 +1758,45 @@ class Component extends DCLogic {
 
 <style>
   html, body { height: auto; min-height: 100%; }
-  [data-tour-step] { opacity: .3; transition: opacity .45s ease; }
-  [data-tour-step]:first-child { opacity: 1; }
-  @media (max-width: 860px) {
-    [data-hq="tourgrid"] { grid-template-columns: 1fr !important; gap: 8px !important; }
-    [data-tour-phone] { order: -1; top: 8vh !important; margin: 0 auto 6px; width: min(62vw, 250px); }
-    [data-tour-step] { min-height: 62vh !important; }
-  }
   @media (prefers-reduced-motion: reduce) {
-    [data-tour-shot], [data-tour-step] { transition: none !important; }
+    [data-tour-shot], [data-tour-cap] { transition: none !important; }
   }
 </style>
 <script>
 (function () {
-  function pick(root) {
-    var steps = root.querySelectorAll('[data-tour-step]');
-    var shots = root.querySelectorAll('[data-tour-shot]');
-    if (!steps.length || !shots.length) return;
-    var mid = window.innerHeight * 0.42, active = 0, best = Infinity;
-    for (var i = 0; i < steps.length; i++) {
-      var r = steps[i].getBoundingClientRect();
-      var d = Math.abs((r.top + r.bottom) / 2 - mid);
-      if (d < best) { best = d; active = i; }
-    }
-    var n = Math.min(shots.length, steps.length);
-    for (var j = 0; j < shots.length; j++) shots[j].style.opacity = (j === active) ? '1' : '0';
-    for (var k = 0; k < steps.length; k++) steps[k].style.opacity = (k === active) ? '1' : '.3';
-  }
+  var DUR = 2800;
   function init() {
     var root = document.querySelector('[data-hq="tourgrid"]');
     if (!root || !root.querySelector('[data-tour-shot]')) return false;
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return; ticking = true;
-      requestAnimationFrame(function () { pick(root); ticking = false; });
+    var idx = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(i) {
+      var shots = root.querySelectorAll('[data-tour-shot]');
+      var caps = root.querySelectorAll('[data-tour-cap]');
+      var fills = root.querySelectorAll('[data-tour-dot] > i');
+      for (var s = 0; s < shots.length; s++) shots[s].style.opacity = (s === i) ? '1' : '0';
+      for (var c = 0; c < caps.length; c++) caps[c].style.opacity = (c === i) ? '1' : '0';
+      for (var d = 0; d < fills.length; d++) {
+        var f = fills[d];
+        if (d < i) { f.style.transition = 'none'; f.style.width = '100%'; }
+        else if (d === i && !reduce) { f.style.transition = 'none'; f.style.width = '0'; void f.offsetWidth; f.style.transition = 'width ' + DUR + 'ms linear'; f.style.width = '100%'; }
+        else if (d === i) { f.style.transition = 'none'; f.style.width = '100%'; }
+        else { f.style.transition = 'none'; f.style.width = '0'; }
+      }
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    // language switch re-renders the steps — re-sync shortly after any tap
-    document.addEventListener('click', function () { setTimeout(function () { pick(root); }, 380); }, true);
-    pick(root);
+    function count() { return root.querySelectorAll('[data-tour-shot]').length; }
+    function next() { idx = (idx + 1) % count(); show(idx); }
+    show(0);
+    var start = function () { if (!timer) timer = setInterval(next, DUR); };
+    var stop = function () { clearInterval(timer); timer = null; };
+    start();
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    // language switch re-renders captions — re-apply active one after any tap
+    document.addEventListener('click', function () { setTimeout(function () {
+      var caps = root.querySelectorAll('[data-tour-cap]');
+      for (var c = 0; c < caps.length; c++) caps[c].style.opacity = (c === idx) ? '1' : '0';
+    }, 380); }, true);
     return true;
   }
   var tries = 0;
