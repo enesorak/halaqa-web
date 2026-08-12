@@ -1779,32 +1779,18 @@ class Component extends DCLogic {
 </style>
 <script>
 (function () {
-  var SCENES = [
-    { img: 0, x: -6, zoom: 1.6,  fx: 50, fy: 55, spot: true },
-    { img: 1, x: 6,  zoom: 1.7,  fx: 50, fy: 50, spot: true },
-    { img: 2, x: -8, zoom: 1.6,  fx: 36, fy: 60, spot: true },
-    { img: 3, x: 6,  zoom: 1.7,  fx: 50, fy: 49, spot: true },
-    { img: 4, x: 8,  zoom: 1.95, fx: 17, fy: 34, spot: true }
-  ];
   function init() {
     var cine = document.querySelector('[data-cine]');
     if (!cine) return false;
-    var phone = cine.querySelector('[data-cine-phone]');
-    var imgwrap = cine.querySelector('[data-cine-imgwrap]');
     var spot = cine.querySelector('[data-cine-spot]');
-    if (!phone || !imgwrap || !spot || !cine.querySelector('[data-cine-shot]')) return false;
+    if (spot) spot.style.opacity = '0';
+    if (!cine.querySelector('[data-cine-shot]')) return false;
+    var N = cine.querySelectorAll('[data-cine-shot]').length;
     var cur = -1;
     function apply(i) {
-      var s = SCENES[i];
       var shots = cine.querySelectorAll('[data-cine-shot]');
       var caps = cine.querySelectorAll('[data-cine-cap]');
-      var tx = (window.innerWidth < 760) ? 0 : s.x;
-      phone.style.transform = 'translateX(' + tx + 'vw)';
-      imgwrap.style.transformOrigin = s.fx + '% ' + s.fy + '%';
-      imgwrap.style.transform = 'scale(' + s.zoom + ')';
-      for (var j = 0; j < shots.length; j++) shots[j].style.opacity = (j === s.img) ? '1' : '0';
-      spot.style.background = 'radial-gradient(52% 34% at ' + s.fx + '% ' + s.fy + '%, rgba(6,14,11,0) 46%, rgba(6,14,11,.56) 100%)';
-      spot.style.opacity = s.spot ? '1' : '0';
+      for (var j = 0; j < shots.length; j++) shots[j].style.opacity = (j === i) ? '1' : '0';
       for (var c = 0; c < caps.length; c++) caps[c].style.opacity = (c === i) ? '1' : '0';
       cur = i;
     }
@@ -1813,7 +1799,7 @@ class Component extends DCLogic {
       var denom = r.height - window.innerHeight;
       var p = denom > 0 ? (-r.top) / denom : 0;
       p = Math.max(0, Math.min(1, p));
-      var i = Math.min(SCENES.length - 1, Math.floor(p * SCENES.length));
+      var i = Math.min(N - 1, Math.floor(p * N));
       if (i !== cur) apply(i);
     }
     var ticking = false;
