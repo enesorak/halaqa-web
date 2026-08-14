@@ -1222,7 +1222,7 @@ h1,h2,h3,h4,p{margin:0;}
         <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-d);font-weight:700">{{ c.k }}</div>
         <div style="margin-top:14px;display:grid;gap:10px">
           <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="3">
-            <a href="#top" style="font-size:13.5px;color:var(--mute);font-weight:500" style-hover="color:var(--ink)">{{ l }}</a>
+            <a href="{{ l.u }}" style="font-size:13.5px;color:var(--mute);font-weight:500" style-hover="color:var(--ink)">{{ l.t }}</a>
           </sc-for>
         </div>
       </div>
@@ -1372,9 +1372,9 @@ const STR = {
     footer: {
       about: "Zikir, dua ve manevi topluluk için sakin bir alan.",
       cols: [
-        { k: "Uygulama", links: ["Özellikler", "Zikir Bahçesi", "Halka", "Meydan"] },
-        { k: "Destek", links: ["Yardım merkezi", "İletişim", "Geri bildirim"] },
-        { k: "Yasal", links: ["Gizlilik politikası", "Kullanım şartları", "KVKK"] }
+        { k: "Uygulama", links: [ { t: "Özellikler", u: "#tesbih" }, { t: "Zikir Bahçesi", u: "#bahce" }, { t: "Halka", u: "#halka" }, { t: "Meydan", u: "#meydan" } ] },
+        { k: "Destek", links: [ { t: "Yardım merkezi", u: "mailto:support@joinhalaqa.com" }, { t: "İletişim", u: "mailto:support@joinhalaqa.com" }, { t: "Geri bildirim", u: "mailto:support@joinhalaqa.com" } ] },
+        { k: "Yasal", links: [ { t: "Gizlilik politikası", u: "/privacy/" }, { t: "Kullanım şartları", u: "/terms/" }, { t: "KVKK", u: "/privacy/" } ] }
       ],
       made: "Sükûnetle hazırlandı."
     }
@@ -1514,9 +1514,9 @@ const STR = {
     footer: {
       about: "A calm space for remembrance, prayer and spiritual company.",
       cols: [
-        { k: "App", links: ["Features", "Garden of Dhikr", "Live rooms", "The Square"] },
-        { k: "Support", links: ["Help centre", "Contact", "Feedback"] },
-        { k: "Legal", links: ["Privacy policy", "Terms of use", "Data protection"] }
+        { k: "App", links: [ { t: "Features", u: "#tesbih" }, { t: "Garden of Dhikr", u: "#bahce" }, { t: "Live rooms", u: "#halka" }, { t: "The Square", u: "#meydan" } ] },
+        { k: "Support", links: [ { t: "Help centre", u: "mailto:support@joinhalaqa.com" }, { t: "Contact", u: "mailto:support@joinhalaqa.com" }, { t: "Feedback", u: "mailto:support@joinhalaqa.com" } ] },
+        { k: "Legal", links: [ { t: "Privacy policy", u: "/privacy/" }, { t: "Terms of use", u: "/terms/" }, { t: "Data protection", u: "/privacy/" } ] }
       ],
       made: "Made with stillness."
     }
@@ -1656,9 +1656,9 @@ const STR = {
     footer: {
       about: "مساحة هادئة للذكر والدعاء والرفقة الصالحة.",
       cols: [
-        { k: "التطبيق", links: ["الميزات", "حديقة الذكر", "الغرف المباشرة", "الساحة"] },
-        { k: "الدعم", links: ["مركز المساعدة", "اتصل بنا", "ملاحظاتك"] },
-        { k: "قانوني", links: ["سياسة الخصوصية", "شروط الاستخدام", "حماية البيانات"] }
+        { k: "التطبيق", links: [ { t: "الميزات", u: "#tesbih" }, { t: "حديقة الذكر", u: "#bahce" }, { t: "الغرف المباشرة", u: "#halka" }, { t: "الساحة", u: "#meydan" } ] },
+        { k: "الدعم", links: [ { t: "مركز المساعدة", u: "mailto:support@joinhalaqa.com" }, { t: "اتصل بنا", u: "mailto:support@joinhalaqa.com" }, { t: "ملاحظاتك", u: "mailto:support@joinhalaqa.com" } ] },
+        { k: "قانوني", links: [ { t: "سياسة الخصوصية", u: "/privacy/" }, { t: "شروط الاستخدام", u: "/terms/" }, { t: "حماية البيانات", u: "/privacy/" } ] }
       ],
       made: "صُنع بسكينة."
     }
